@@ -3,6 +3,8 @@
 #include <layouts/foostan/corne/5column.dtsi>
 #include <layouts/foostan/corne/6column.dtsi>
 
+#include "esb_addr.dtsi"
+
 &foostan_corne_6col_layout {
     transform = <&default_transform>;
 };
