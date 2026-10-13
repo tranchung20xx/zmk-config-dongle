@@ -1,10 +1,9 @@
-# Copyright (c) 2025 The ZMK Contributors
-# SPDX-License-Identifier: LicenseRef-Nordic-5-Clause
-
 manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+    - name: badjeff
+      url-base: https://github.com/badjeff
     - name: nrfconnect
       url-base: https://github.com/nrfconnect
   projects:
@@ -12,6 +11,9 @@ manifest:
       remote: zmkfirmware
       revision: v0.3.0
       import: app/west.yml
+    - name: zmk-feature-split-esb
+      remote: badjeff
+      revision: zmk-0.3
     - name: sdk-nrf
       remote: nrfconnect
       revision: v2.6.4 # zephyr v3.5.99
