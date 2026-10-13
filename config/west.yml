@@ -2,8 +2,6 @@
 # SPDX-License-Identifier: LicenseRef-Nordic-5-Clause
 
 manifest:
-  defaults:
-    revision: v0.3
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
@@ -12,7 +10,7 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: main
+      revision: v0.3.0
       import: app/west.yml
     - name: sdk-nrf
       remote: nrfconnect
