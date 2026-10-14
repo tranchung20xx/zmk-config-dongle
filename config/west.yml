@@ -4,6 +4,8 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: badjeff
       url-base: https://github.com/badjeff
+    - name: tranchung20xx
+      url-base: https://github.com/tranchung20xx
     - name: nrfconnect
       url-base: https://github.com/nrfconnect
   projects:
@@ -12,8 +14,8 @@ manifest:
       revision: main
       import: app/west.yml
     - name: zmk-feature-split-esb
-      remote: badjeff
-      revision: main
+      remote: tranchung20xx
+      revision: esb
     - name: sdk-nrf
       remote: badjeff
       revision: v3.1-branch+zmk-fixes
