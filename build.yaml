@@ -19,13 +19,13 @@
 #
 ---
 include:
-  - board: nice_nano_v2
+  - board: nice_nano@2.0.0//zmk
     shield: corne_dongle
-  - board: nice_nano_v2
+  - board: nice_nano@2.0.0//zmk
     shield: corne_left
     cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
-  - board: nice_nano_v2
+  - board: nice_nano@2.0.0//zmk
     shield: corne_right
-  - board: nice_nano_v2
+  - board: nice_nano@2.0.0//zmk
     shield: settings_reset
     artifact-name: settings_reset
