@@ -22,15 +22,15 @@ include:
   - board: nice_nano@2.0.0//zmk
     shield: corne_dongle
     snippet: nrf52840-nosd
-    cmake-args: -DCONFIG_SPEED_OPTIMIZATIONS=y
+    cmake-args: -DCONFIG_SPEED_OPTIMIZATIONS=y -DCONFIG_NRF_ENABLE_CACHE=y
   - board: nice_nano@2.0.0//zmk
     shield: corne_left
     snippet: nrf52840-nosd
-    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n -DCONFIG_SPEED_OPTIMIZATIONS=y
+    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n -DCONFIG_SPEED_OPTIMIZATIONS=y -DCONFIG_NRF_ENABLE_CACHE=y
   - board: nice_nano@2.0.0//zmk
     shield: corne_right
     snippet: nrf52840-nosd
-    cmake-args: -DCONFIG_SPEED_OPTIMIZATIONS=y
+    cmake-args: -DCONFIG_SPEED_OPTIMIZATIONS=y -DCONFIG_NRF_ENABLE_CACHE=y
   - board: nice_nano@2.0.0//zmk
     shield: settings_reset
     artifact-name: settings_reset
