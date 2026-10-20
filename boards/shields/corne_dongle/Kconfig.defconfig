@@ -9,8 +9,4 @@ config ZMK_SPLIT_ROLE_CENTRAL
 config ZMK_SPLIT
     default y
 
-# 2 peripherals: left half + right half
-config ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS
-    default 2
-
 endif
