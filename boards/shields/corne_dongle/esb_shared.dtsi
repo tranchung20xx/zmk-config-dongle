@@ -3,26 +3,16 @@
         compatible = "zmk,split-esb";
         base-address = [E7 D3 9A 5C];
         peripherals {
-            mouse: peripheral_mouse {
+            left: peripheral_left {
                 pipe = <0>;
                 prefix = <0x4B>;
                 weight = <1>;
             };
+            right: peripheral_right {
+                pipe = <1>;
+                prefix = <0xC3>;
+                weight = <1>;
+            };
         };
-    };
-
-    split_inputs {
-        #address-cells = <1>;
-        #size-cells = <0>;
-        mouse_split: mouse_split@0 {
-            compatible = "zmk,input-split";
-            reg = <0>;
-        };
-    };
-
-    mouse_listener: mouse_listener {
-        compatible = "zmk,input-listener";
-        status = "disabled";
-        device = <&mouse_split>;
     };
 };
