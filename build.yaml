@@ -22,10 +22,9 @@ include:
   - board: nice_nano//zmk
     shield: corne_dongle
   - board: nice_nano//zmk
-    shield: corne_left
-    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+    shield: corne_esb_left
   - board: nice_nano//zmk
-    shield: corne_right
+    shield: corne_esb_right
   - board: nice_nano//zmk
     shield: settings_reset
     artifact-name: settings_reset
