@@ -2,6 +2,7 @@
     esb_link {
         compatible = "zmk,split-esb";
         base-address = [E7 D3 9A 5C];
+        hop-channels = [18 31 4A 4C 4E 50];
         tx-power-dbm = <8>;
         peripherals {
             left: peripheral_left {
