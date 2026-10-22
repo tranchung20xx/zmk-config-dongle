@@ -3,10 +3,6 @@
         compatible = "zmk,split-esb";
         base-address = [E7 D3 9A 5C];
         bitrate-kbps = <1000>;
-        retransmit-delay-us = <1000>;
-        hop-channels = [18 19 31 32 4A 4C 4E 50];  // 24 25 49 50 74 76 78 80
-        hop-anchors = [18 31 4A];
-        hop-min-active = <5>;
         tx-power-dbm = <8>;
         peripherals {
             left: peripheral_left {
