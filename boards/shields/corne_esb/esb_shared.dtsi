@@ -24,9 +24,12 @@
         hop-threshold = <24>;
         hop-mask-threshold = <16>;
         hop-min-active = <8>;
-        // Needs to mask above leakage from a microwave / 5 GHz lower edge.
-        survey-threshold-dbm = <(-72)>;
-        rssi-floor-dbm = <(-80)>;
+        // Written as unsigned hex, not negative: the module assigns these to
+        // int8_t via DT_INST_PROP, which expands to an unsigned literal
+        // (4294967216 for -80), and GCC rejects that conversion under -Werror.
+        // The low byte is what lands in the int8_t, so 0xB0 reads back as -80.
+        survey-threshold-dbm = <0x000000B8>; /* -72 */
+        rssi-floor-dbm = <0x000000B0>; /* -80 */
 
         hop-window-ms = <32>;
         // Also the central's hop-decision window.
