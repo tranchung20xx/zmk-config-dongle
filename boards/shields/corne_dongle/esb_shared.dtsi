@@ -1,17 +1,48 @@
+/*
+ * Shared ESB link identity. Every value must match on the dongle and both
+ * halves, or peripherals set config_mismatch and stop following hops.
+ */
 / {
     esb_link {
         compatible = "zmk,split-esb";
+
         base-address = [E7 D3 9A 5C];
-        bitrate-kbps = <1000>;
-        use-fast-ramp-up;
-        retransmit-delay-us = <1000>;
+        // 4 on-air bytes instead of 5: one byte off every packet and its ACK.
+        address-length = <4>;
+        bitrate-kbps = <2000>;
+        retransmit-delay-us = <600>;
+        // Ceiling only; the peripheral adapts between 2 and this.
         retransmit-count = <6>;
-        hop-channels = [19 28 2C 30 32 34 38 3C 40 44 48 4C];   // adds 25 and 50
-        hop-anchors = [19 32 4C];                                // 25, 50, 76
-        hop-min-active = <6>;
-        tx-power-dbm = <8>;
+        use-fast-ramp-up;
+
+        // 0-100 -> 2400+N MHz. 0x52..0x63 = 2482..2499 MHz, clear of 802.11
+        // ch1-11. `N:` is invalid DTS (parses as thousands), so plain values.
+        hop-channels
+            = [52 53 54 55 56]
+            , [58 59 5A 5B 5C 5D 5E]
+            , [5F 60 61 62 63]
+            ;
+        // Never masked; must be a subset of hop-channels.
+        hop-anchors = [52 5B 63];
+
+        hop-threshold = <24>;
+        hop-mask-threshold = <16>;
+        hop-min-active = <8>;
+        // Needs to mask above leakage from a microwave / 5 GHz lower edge.
+        survey-threshold-dbm = <(-72)>;
+        rssi-floor-dbm = <(-80)>;
+
+        hop-window-ms = <32>;
+        // Also the central's hop-decision window.
+        idle-keepalive-ms = <64>;
+        // Long enough not to release a modifier held mid-chord.
+        peripheral-timeout-ms = <5000>;
+
+        // Max nRF52 accepts in DPL mode.
+        tx-power-dbm = <4>;
+
         peripherals {
-            left: peripheral_left  { pipe = <0>; prefix = <0x4B>; weight = <1>; };
+            left: peripheral_left   { pipe = <0>; prefix = <0x4B>; weight = <1>; };
             right: peripheral_right { pipe = <1>; prefix = <0xC3>; weight = <1>; };
         };
     };
