@@ -17,11 +17,7 @@
 
         // 0-100 -> 2400+N MHz. 0x52..0x63 = 2482..2499 MHz, clear of 802.11
         // ch1-11. `N:` is invalid DTS (parses as thousands), so plain values.
-        hop-channels
-            = [52 53 54 55 56]
-            , [58 59 5A 5B 5C 5D 5E]
-            , [5F 60 61 62 63]
-            ;
+        hop-channels = [52 53 54 55 56 58 59 5A 5B 5C 5D 5E 5F 60 61 62 63];
         // Never masked; must be a subset of hop-channels.
         hop-anchors = [52 5B 63];
 
