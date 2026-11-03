@@ -3,16 +3,19 @@
         compatible = "zmk,split-esb";
         base-address = [E7 D3 9A 5C];
         use-fast-ramp-up;
+        tx-power-dbm = <4>;
         peripherals {
             left: peripheral_left {
                 pipe = <0>;
                 prefix = <0x4B>;
                 weight = <1>;
+                reply-queue-depth = <32>;
             };
             right: peripheral_right {
                 pipe = <1>;
                 prefix = <0xC3>;
                 weight = <1>;
+                reply-queue-depth = <32>;
             };
         };
     };
