@@ -3,7 +3,6 @@
         compatible = "zmk,split-esb";
         base-address = [E7 D3 9A 5C];
         use-fast-ramp-up;
-        retransmit-count = <8>;
         peripherals {
             left: peripheral_left {
                 pipe = <0>;
