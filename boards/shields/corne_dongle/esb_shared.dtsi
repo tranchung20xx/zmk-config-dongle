@@ -1,19 +1,43 @@
 / {
     esb_link {
         compatible = "zmk,split-esb";
-        base-address = [E7 D3 9A 5C];
-        use-fast-ramp-up;
+        base-address = [6D A2 39 F1];
+
+        hop-threshold = <32>;
+        hop-min-active = <8>;
+        hop-mask-threshold = <24>;
+        hop-restore-windows = <128>;
+
+        hop-window-ms = <32>;
+        idle-keepalive-ms = <128>;
+        peripheral-timeout-ms = <5000>;
+
+        rssi-floor-dbm = <-90>;
+        survey-threshold-dbm = <-65>;
+
+        retransmit-count = <15>;
+
         tx-power-dbm = <8>;
+        bitrate-kbps = <2000>;
+        crc-bits = <16>;
+        use-fast-ramp-up;
+
         peripherals {
+            central-slot {
+                pipe = <2>;
+                prefix = <0xC3>;
+                weight = <1>;
+                role = "self";
+            };
             left: peripheral_left {
                 pipe = <0>;
-                prefix = <0x4B>;
+                prefix = <0xA1>;
                 weight = <1>;
                 reply-queue-depth = <32>;
             };
             right: peripheral_right {
                 pipe = <1>;
-                prefix = <0xC3>;
+                prefix = <0xB2>;
                 weight = <1>;
                 reply-queue-depth = <32>;
             };
