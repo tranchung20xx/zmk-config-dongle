@@ -12,8 +12,8 @@
         idle-keepalive-ms = <128>;
         peripheral-timeout-ms = <5000>;
 
-        rssi-floor-dbm = <-90>;
-        survey-threshold-dbm = <-65>;
+        rssi-floor-dbm = <(-90)>;
+        survey-threshold-dbm = <(-65)>;
 
         retransmit-count = <15>;
 
