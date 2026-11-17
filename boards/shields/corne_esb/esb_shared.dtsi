@@ -1,7 +1,7 @@
 / {
     esb_link {
         compatible = "zmk,split-esb";
-        base-address = [6D A2 39 F1];
+        base-address = [D2 4B A7 6E];
 
         hop-threshold = <32>;
         hop-min-active = <8>;
@@ -20,21 +20,15 @@
         use-fast-ramp-up;
 
         peripherals {
-            central-slot {
-                pipe = <2>;
-                prefix = <0xC3>;
-                weight = <1>;
-                role = "self";
-            };
             left: peripheral_left {
                 pipe = <0>;
-                prefix = <0xA1>;
+                prefix = <0x93>;
                 weight = <1>;
                 reply-queue-depth = <32>;
             };
             right: peripheral_right {
                 pipe = <1>;
-                prefix = <0xB2>;
+                prefix = <0x6D>;
                 weight = <1>;
                 reply-queue-depth = <32>;
             };
