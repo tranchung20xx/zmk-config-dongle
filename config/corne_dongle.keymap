@@ -14,8 +14,6 @@
 
 &msc { delay-ms = <100>; };
 
-&mmv { time-to-max-speed-ms = <1000>; };
-
 / {
     behaviors {
         bspc_del: bspc_del {
